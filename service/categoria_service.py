@@ -12,7 +12,7 @@ class CategoriaService:
     @property
     def categoria_dao(self) -> CategoriaDAO:
         return self.__categoria_dao
-
+    
 
     def menu(self):
         print('[Categorias] Escolha uma das seguintes opções:\n'
@@ -56,7 +56,7 @@ class CategoriaService:
         except Exception as e:
             print(f'Erro ao exibir as categorias! - {e}')
             return
-
+        
 
         input('Pressione uma tecla para continuar...')
 
@@ -66,15 +66,15 @@ class CategoriaService:
 
 
         try:
-            id = self.__categoria_dao.ultimo_id() + 1
+
             nome = input('Digite o nome da categoria: ')
-            nova_categoria = Categoria(id, nome)
+            nova_categoria = Categoria(nome=nome)
             self.__categoria_dao.adicionar(nova_categoria)
             print('Categoria adicionada com sucesso!')
         except Exception as e:
             print(f'Erro ao inserir categoria! - {e}')
             return
-
+        
 
         input('Pressione uma tecla para continuar...')
 
@@ -92,7 +92,7 @@ class CategoriaService:
         except Exception as e:
             print(f'Erro ao excluir categoria! - {e}')
             return
-       
+
         input('Pressione uma tecla para continuar...')
 
 
@@ -108,9 +108,9 @@ class CategoriaService:
             if (cat == None):
                 print('Categoria não encontrada!')
             else:
-                print(f'Id: {cat.id} | Categoria: {cat.nome}')    
+                print(f'Id: {cat.id} | Categoria: {cat.nome}')
         except Exception as e:
             print(f'Erro ao exibir categoria! - {e}')
-            return    
-       
+            return
+        
         input('Pressione uma tecla para continuar...')
